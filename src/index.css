@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* default styling */
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body,
+html,
+#root {
+  min-height: 100dvh;
+  width: 100dvw;
+  background-color: #101010;
+  overflow: hidden;
+}
