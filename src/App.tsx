@@ -19,4 +19,9 @@ export default function App() {
       </main>
     </>
   );
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> 53ec191134f538f86791a1f511930ac8a7390efd
