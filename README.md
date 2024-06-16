@@ -13,6 +13,7 @@ An in-depth paragraph about your project and overview of use.
 Contributors names and contact info
 
 *ex. Jo_brain
+
 *ex. Noah612
 
 ## Version History
