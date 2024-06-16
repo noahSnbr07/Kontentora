@@ -15,7 +15,7 @@ export default {
       //static non-transparent colors
       'white': 'white',
       'black': 'black',
-      'accent': 'red',
+      'accent': '#4187ff',
 
       //used to test components and see, if they are being displayed
       'debug-1': 'red',

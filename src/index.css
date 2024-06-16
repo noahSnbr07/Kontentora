@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  font-size: 16px;
+}
+
 /* default styling */
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  font-family: Quicksand;
 }
 
 body,
@@ -15,5 +20,16 @@ html,
   min-height: 100dvh;
   width: 100dvw;
   background-color: #101010;
-  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+/* configuring fonts */
+
+@font-face {
+  font-family: Quicksand;
+  src: url('/src/assets/fonts/Quicksand-Bold.ttf');
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }
