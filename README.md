@@ -1,10 +1,10 @@
 # Kontentora
 
-Were Ideas become Reality
+Were Ideas Become Reality
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+-------
 
 ## Getting Started
 
@@ -12,9 +12,9 @@ An in-depth paragraph about your project and overview of use.
 
 Contributors names and contact info
 
-*ex. Jo_brain
+ex. Jo_brain
 
-*ex. Noah612
+ex. Noah612
 
 ## Version History
 
