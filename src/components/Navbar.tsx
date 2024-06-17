@@ -1,54 +1,121 @@
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
-import logo from '../assets/images/icon_dark.png'
+import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
+import logo from '../assets/images/icon_dark.png';
+import { useEffect, useRef, useState } from 'react';
+
 export default function Navbar(): JSX.Element {
+  // Search bar input variables
+  const [inputValue, setInputValue] = useState<string>('');
+  const [searchBarFocused, setSearchBarFocused] = useState<boolean>(false);
 
-   //structure for the link-array
-   interface NavbarLinkProps {
-      name: string;
-      url: string;
-   }
+  // Struktur für das Link-Array
+  interface NavbarLinkProps {
+    name: string;
+    url: string;
+  }
 
-   //all links as an array
-   const links: Array<NavbarLinkProps> = [
-      { name: "Home", url: "/" },
-      { name: "Pricing", url: "/pricing" },
-      { name: "About", url: "/about" },
-      { name: "Cart", url: "/cart" },
-      { name: "Tech", url: "/tech" },
-      { name: "Account", url: "/account" },
-      { name: "Contact", url: "/contact" },
-   ];
+  const navigate = useNavigate();
 
-   //Link component
-   const NavBarLink: React.FunctionComponent<NavbarLinkProps> = ({ name, url }: NavbarLinkProps): JSX.Element => {
+  // Alle Links als ein Array
+  const links: Array<NavbarLinkProps> = [
+    { name: "Home", url: "/" },
+    { name: "Pricing", url: "/pricing" },
+    { name: "About", url: "/about" },
+    { name: "Cart", url: "/cart" },
+    { name: "Tech", url: "/tech" },
+    { name: "Account", url: "/account" },
+    { name: "Contact", url: "/contact" },
+  ];
 
-      //parse the current location
-      const resolvedPath = useResolvedPath(url);
-      const isMatch = useMatch({ path: resolvedPath.pathname, end: true });
+  // Link-Komponente
+  const NavBarLink: React.FunctionComponent<NavbarLinkProps> = ({ name, url }: NavbarLinkProps) => {
+    // Parse the current location
+    const resolvedPath = useResolvedPath(url);
+    const isMatch = useMatch({ path: resolvedPath.pathname, end: true });
 
-      //color the current location white
-      return (
-         <Link className={isMatch ? 'text-white' : 'text-transparent-50'} replace={true} to={url}>
-            {name}
-         </Link>
-      );
-   }
+    // Color the current location white and add animation class if needed
+    return (
+      <Link
+        className={`${isMatch ? 'text-white' : 'text-transparent-50'} hover:scale-110 transition-all`}
+        replace={true}
+        to={url}>
+        {name}
+      </Link>
+    );
+  };
 
-   return (
-      <nav className='bg-black p-3 text-white h-20 flex flex-row justify-between items-center gap-3'>
-         <div className='h-full flex gap-4 items-center'>
-            <img src={logo} alt='kontentora icon' draggable={false} className='h-full' />
-            <input
-               type='text'
-               maxLength={50}
-               className='bg-transparent-10 p-3 h-10 rounded-full w-full'
-            />
-         </div>
-         <div className='justify-end flex gap-8'>
-            {/* Map all links */}
-            {links.map((link: NavbarLinkProps, index: number) =>
-               <NavBarLink name={link.name} url={link.url} key={index} />)}
-         </div>
-      </nav>
-   );
+  // Search option props interface
+  interface SearchOptionProps {
+    keywords: Array<string>;
+    location: string;
+    label: string;
+  }
+
+  //alle optionen, die per Suchleiste gefunden werden können
+  const searchOptions: Array<SearchOptionProps> = [
+    { keywords: ["home", "main", "start"], location: "/", label: "Homepage" },
+    { keywords: ["price", "cost", "service"], location: "/prices", label: "Pricing & Bundles" },
+    { keywords: ["about", "main", "company"], location: "/about", label: "About Us" },
+    { keywords: ["cart", "shopping", "purchase"], location: "/cart", label: "Cart & Purchases" },
+    { keywords: ["tech", "code", "development"], location: "/tech", label: "Our Technologies" },
+    { keywords: ["account", "profile", "me"], location: "/account", label: "Your Account" },
+    { keywords: ["Contact", "Email", "Service"], location: "/contact", label: "Contact Us" },
+  ];
+
+  //funktion um input wert zu updaten
+  const updatedSearchOptions = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newString = e.target.value;
+    setInputValue(newString);
+  };
+
+  //funktion um zu einer andere seite zu navigieren
+  const gotoPage = (url: string) => {
+    setSearchBarFocused(false);
+    navigate(url);
+  };
+
+  //box, die ergebnisse anzeigt
+  const SearchOptionsDisplayBox = () => {
+    const filteredOptions = searchOptions.filter((option) => {
+      const keywords = inputValue.toLowerCase().split(" ");
+      return keywords.some((keyword) => option.keywords.some((keyword2) => keyword2.includes(keyword)));
+    });
+
+    return (
+      <>
+        <div
+          style={{ transform: 'translate(-50%, -50%)', overflow: 'scroll' }}
+          className='absolute bg-dimming backdrop-blur-3xl top-[50%] translate-x-1/2 translate-y-1/2 left-[50%] w-1/2 h-1/2 flex flex-col rounded-xl p-3'>
+          <button className='p-3' onClick={() => void setSearchBarFocused(false)}>{"> Close This Panel <"}</button>
+          {filteredOptions.map((option) =>
+            <div
+              onClick={() => void gotoPage(option.location)}
+              className='w-full p-3 border-b-2 border-transparent-10 even:bg-transparent-10'>
+              {option.label}
+            </div>
+          )}
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <nav className='bg-black p-3 text-white h-20 flex flex-row justify-between items-center gap-3'>
+      <div className='h-full flex gap-4 items-center flex-1'>
+        <img src={logo} alt='Kontentora icon' draggable={false} className='h-full' />
+        <input
+          onFocus={() => void setSearchBarFocused(true)}
+          onChange={(e) => { updatedSearchOptions(e) }}
+          type='text'
+          maxLength={50}
+          className={`bg-transparent-10 p-3 h-10 rounded-full relative ${searchBarFocused ? 'w-full' : 'w-1/4'}`}
+        />
+      </div>
+      <div className='justify-end flex gap-8'>
+        {links.map((link: NavbarLinkProps, index: number) =>
+          <NavBarLink name={link.name} url={link.url} key={index} />
+        )}
+      </div>
+      {searchBarFocused && <SearchOptionsDisplayBox />}
+    </nav>
+  );
 }

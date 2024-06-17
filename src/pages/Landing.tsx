@@ -1,36 +1,47 @@
+import React from 'react';
 import background from '../assets/images/background.png';
 import arrow from '../assets/icons/arrow_down.svg';
+import Header from '../components/Header.tsx';
 export default function Landing() {
 
-   //the main index screen
-   const GreetingScreen: React.FunctionComponent = (): JSX.Element => {
+  //the main index screen
+  const GreetingScreen: React.FunctionComponent = (): JSX.Element => {
 
-      //css style rules for background
-      const style = { backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' };
-      return (
-         <section
-            style={style}
-            className="h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold">
-            <p className='line-h-10'> The Place where <br /> Imagination becomes <br />
-               <strong className='text-accent'> Reality </strong>
-            </p>
-            <img src={arrow} alt='arrow down' draggable={false} className='cursor-pointer' onClick={() => window.scrollTo({ top: document.body.scrollHeight })} />
-         </section>
-      );
-   }
+    //css style rules for background
+    const style = { backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' };
+    return (
+      <section
+        style={style}
+        className="h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold">
+        <p> The Place where <br /> Imagination becomes <br />
+          <span className='text-accent'> Reality </span>
+        </p>
+        <img src={arrow} alt='arrow down' draggable={false} className='cursor-pointer' onClick={() => window.scrollTo({ top: document.body.scrollHeight })} />
+      </section>
+    );
+  }
 
-   const AboutPage: React.FunctionComponent = (): JSX.Element => {
-      return (
-         <section className='h-full w-full flex justify-between items-center'>
-            <p className='h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold"'>What we Offer</p>
-         </section>
-      )
-   }
+  const AboutPage: React.FunctionComponent = (): JSX.Element => {
+    return (
+      <section className='h-full w-full flex justify-center p-8 items-start min-h-screen'>
+        <Header label="What we offer" />
+      </section>
+    );
+  }
 
-   return (
-      <div className='bg-debug-3 w-full h-[calc(100dvh-5rem)]'>
-         <GreetingScreen />
-         <AboutPage />
-      </div>
-   );
+  const PricingPage: React.FunctionComponent = (): JSX.Element => {
+    return (
+      <section className='h-full w-full flex justify-start p-8 flex-col items-center min-h-screen'>
+        <Header label="Our Trusted Technologies" />
+      </section>
+    )
+  }
+
+  return (
+    <div className='w-full h-[calc(100dvh-5rem)]'>
+      <GreetingScreen />
+      <AboutPage />
+      <PricingPage />
+    </div>
+  );
 }

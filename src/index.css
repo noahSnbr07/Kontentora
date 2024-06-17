@@ -21,6 +21,15 @@ html,
   width: 100dvw;
   background-color: #101010;
   scroll-behavior: smooth;
+  cursor: url('./assets/images/cursor.png'), auto;
+}
+
+p,
+h2,
+span,
+b,
+i {
+  cursor: url('./assets/images/text.png'), auto;
 }
 
 /* configuring fonts */

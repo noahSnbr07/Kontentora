@@ -1,11 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing";
-
 export default function App() {
   return (
     <>
-      <main className="bg-debug-1 min-h-full w-full">
+      <main className="min-h-full w-full">
         <Navbar />
         <Routes>
 

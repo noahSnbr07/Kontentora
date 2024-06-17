@@ -12,3 +12,14 @@
 * greting page finished
 * added google fonts
 * created About Page Component
+
+## 17.06.2024
+ * added scroll functionality
+ * price page start
+ * hover animation navbar items
+ * fixed some minor typos
+ * reduced bundle size by removing files and simplifying things
+ * created header component for semantic react
+ * added cursor assets
+ * Navbar search box integrated
+ * typography component for consistant headers

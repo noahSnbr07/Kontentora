@@ -16,6 +16,7 @@ export default {
       'white': 'white',
       'black': 'black',
       'accent': '#4187ff',
+      'dimming': 'rgba(0, 0, 0, 0.5)',
 
       //used to test components and see, if they are being displayed
       'debug-1': 'red',
