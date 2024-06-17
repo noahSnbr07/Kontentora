@@ -13,8 +13,8 @@ export default function Navbar(): JSX.Element {
       { name: "Home", url: "/" },
       { name: "Pricing", url: "/pricing" },
       { name: "About", url: "/about" },
-      { name: "Tech", url: "/tech" },
       { name: "Cart", url: "/cart" },
+      { name: "Tech", url: "/tech" },
       { name: "Account", url: "/account" },
       { name: "Contact", url: "/contact" },
    ];
@@ -36,7 +36,7 @@ export default function Navbar(): JSX.Element {
 
    return (
       <nav className='bg-black p-3 text-white h-20 flex flex-row justify-between items-center gap-3'>
-         <div className='h-full flex gap-3 items-center'>
+         <div className='h-full flex gap-4 items-center'>
             <img src={logo} alt='kontentora icon' draggable={false} className='h-full' />
             <input
                type='text'
