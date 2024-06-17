@@ -12,3 +12,8 @@
 * greting page finished
 * added google fonts
 * created About Page Component
+
+## 17.06.2024
+ * addet scroll funktionality
+ * price page start
+ * hover animation navbar items
