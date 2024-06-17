@@ -4,6 +4,7 @@ export default function Landing() {
 
    //the main index screen
    const GreetingScreen: React.FunctionComponent = (): JSX.Element => {
+
       //css style rules for background
       const style = { backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' };
       return (
@@ -11,9 +12,9 @@ export default function Landing() {
             style={style}
             className="h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold">
             <p className='line-h-10'> The Place where <br /> Imagination becomes <br />
-               <span className='text-accent'> Reality </span>
+               <strong className='text-accent'> Reality </strong>
             </p>
-            <img src={arrow} alt='arrow down' draggable={false} className='cursor-pointer' onClick={() => window.scrollTo({ top: document.body.scrollHeight})} />
+            <img src={arrow} alt='arrow down' draggable={false} className='cursor-pointer' onClick={() => window.scrollTo({ top: document.body.scrollHeight })} />
          </section>
       );
    }
@@ -21,7 +22,7 @@ export default function Landing() {
    const AboutPage: React.FunctionComponent = (): JSX.Element => {
       return (
          <section className='h-full w-full flex justify-between items-center'>
-               <p className='h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold"'>What we Offer</p>
+            <p className='h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold"'>What we Offer</p>
          </section>
       )
    }
