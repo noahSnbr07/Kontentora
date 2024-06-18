@@ -23,6 +23,7 @@ export default function Navbar(): JSX.Element {
     { name: "Cart", url: "/cart" },
     { name: "Tech", url: "/tech" },
     { name: "Account", url: "/account" },
+    {name: "Help", url: "/help"},
     { name: "Contact", url: "/contact" },
   ];
 
@@ -59,6 +60,7 @@ export default function Navbar(): JSX.Element {
     { keywords: ["tech", "code", "development"], location: "/tech", label: "Our Technologies" },
     { keywords: ["account", "profile", "me"], location: "/account", label: "Your Account" },
     { keywords: ["Contact", "Email", "Service"], location: "/contact", label: "Contact Us" },
+    { keywords: ["Help", "Q&A", "what"], location:"/help", label:"Get Help"},
   ];
 
   //funktion um input wert zu updaten
