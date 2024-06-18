@@ -2,6 +2,7 @@ import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import logo from '../assets/images/icon_dark.png';
 import { useEffect, useRef, useState } from 'react';
 import searchOptionsConfig from '../assets/libs/searchOptions.json';
+import '../pages/pricing';
 
 export default function Navbar(): JSX.Element {
   // Search bar input variables
