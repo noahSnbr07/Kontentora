@@ -24,15 +24,31 @@ export default function Landing() {
   const AboutPage: React.FunctionComponent = (): JSX.Element => {
     return (
       <section className='h-full w-full flex justify-center p-8 items-start min-h-screen'>
-        <Header label="What we offer" />
+        <Header label="About Our Buissnes" />
       </section>
     );
   }
 
   const PricingPage: React.FunctionComponent = (): JSX.Element => {
     return (
+      <section className='h-full w-full flex justify-center p-8 items-start min-h-screen'>
+        <Header label="What we offer" />
+      </section>
+    );
+  }
+
+  const Tech: React.FunctionComponent = (): JSX.Element => {
+    return (
       <section className='h-full w-full flex justify-start p-8 flex-col items-center min-h-screen'>
         <Header label="Our Trusted Technologies" />
+      </section>
+    )
+  }
+
+  const Contact: React.FunctionComponent = (): JSX.Element => {
+    return (
+      <section className='h-full w-full flex justify-start p-8 flex-col items-center min-h-screen'>
+        <Header label="Get in Touch" />
       </section>
     )
   }
@@ -42,6 +58,8 @@ export default function Landing() {
       <GreetingScreen />
       <AboutPage />
       <PricingPage />
+      <Tech/>
+      <Contact/>
     </div>
   );
 }

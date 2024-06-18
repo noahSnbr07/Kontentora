@@ -23,3 +23,7 @@
  * added cursor assets
  * Navbar search box integrated
  * typography component for consistant headers
+
+## 18.06.2024
+* all sub pages on landing page
+* added pricing page [pricing.tsx]
