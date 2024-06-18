@@ -1,0 +1,38 @@
+[
+   {
+      "title": "Static Site",
+      "userAuth": false,
+      "isPWA": false,
+      "hasLanguageToggle": true,
+      "isHosted": false,
+      "hasBackend": false,
+      "highSEO": false,
+      "isResponsive": true,
+      "hasContactForm": false,
+      "color": "red"
+   },
+   {
+      "title": "Interactive Site",
+      "userAuth": true,
+      "isPWA": false,
+      "hasLanguageToggle": true,
+      "isHosted": false,
+      "hasBackend": true,
+      "highSEO": true,
+      "isResponsive": true,
+      "hasContactForm": true,
+      "color": "red"
+   },
+   {
+      "title": "Webapp",
+      "userAuth": true,
+      "isPWA": true,
+      "hasLanguageToggle": true,
+      "isHosted": false,
+      "hasBackend": true,
+      "highSEO": false,
+      "isResponsive": true,
+      "hasContactForm": false,
+      "color": "red"
+   }
+]

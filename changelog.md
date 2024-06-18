@@ -27,5 +27,11 @@
 ## 18.06.2024
 * all sub pages on landing page
 * added pricing page [pricing.tsx]
-* fixed searchbar filtering
+* fixed search-bar filtering
 * created json file to hold navbar shortcuts
+* removed some unnecessary imports
+* finished pricing section for now
+* added bundlesListed.json to hold all bundles
+* removed some unused images
+* added new tailwind color
+* added two new icons used in bundles

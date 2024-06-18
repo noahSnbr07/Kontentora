@@ -10,6 +10,7 @@ export default {
       //transparent, stack-able colors
       'transparent-0': 'rgba(255, 255, 255, 0)',
       'transparent-10': 'rgba(255, 255, 255, 0.1)',
+      'transparent-dark-50': 'rgba(0, 0, 0, 0.5)',
       'transparent-50': 'rgba(255, 255, 255, 0.5)',
 
       //static non-transparent colors

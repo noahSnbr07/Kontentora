@@ -32,6 +32,10 @@ i {
   cursor: url('./assets/images/text.png'), auto;
 }
 
+img {
+  user-select: none;
+}
+
 /* configuring fonts */
 
 @font-face {
