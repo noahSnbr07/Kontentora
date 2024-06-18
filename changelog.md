@@ -27,3 +27,5 @@
 ## 18.06.2024
 * all sub pages on landing page
 * added pricing page [pricing.tsx]
+* fixed searchbar filtering
+* created json file to hold navbar shortcuts

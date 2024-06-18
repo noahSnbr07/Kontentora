@@ -1,0 +1,74 @@
+[
+   {
+      "keywords": [
+         "home",
+         "main",
+         "start"
+      ],
+      "location": "/",
+      "label": "Homepage"
+   },
+   {
+      "keywords": [
+         "price",
+         "cost",
+         "service"
+      ],
+      "location": "/prices",
+      "label": "Pricing & Bundles"
+   },
+   {
+      "keywords": [
+         "about",
+         "main",
+         "company"
+      ],
+      "location": "/about",
+      "label": "About Us"
+   },
+   {
+      "keywords": [
+         "cart",
+         "shopping",
+         "purchase"
+      ],
+      "location": "/cart",
+      "label": "Cart & Purchases"
+   },
+   {
+      "keywords": [
+         "tech",
+         "code",
+         "development"
+      ],
+      "location": "/tech",
+      "label": "Our Technologies"
+   },
+   {
+      "keywords": [
+         "account",
+         "profile",
+         "me"
+      ],
+      "location": "/account",
+      "label": "Your Account"
+   },
+   {
+      "keywords": [
+         "contact",
+         "email",
+         "service"
+      ],
+      "location": "/contact",
+      "label": "Contact Us"
+   },
+   {
+      "keywords": [
+         "help",
+         "q&a",
+         "what"
+      ],
+      "location": "/help",
+      "label": "Get Help"
+   }
+]

@@ -1,6 +1,7 @@
 import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import logo from '../assets/images/icon_dark.png';
 import { useEffect, useRef, useState } from 'react';
+import searchOptionsConfig from '../assets/libs/searchOptions.json';
 
 export default function Navbar(): JSX.Element {
   // Search bar input variables
@@ -23,7 +24,7 @@ export default function Navbar(): JSX.Element {
     { name: "Cart", url: "/cart" },
     { name: "Tech", url: "/tech" },
     { name: "Account", url: "/account" },
-    {name: "Help", url: "/help"},
+    { name: "Help", url: "/help" },
     { name: "Contact", url: "/contact" },
   ];
 
@@ -46,27 +47,19 @@ export default function Navbar(): JSX.Element {
 
   // Search option props interface
   interface SearchOptionProps {
-    keywords: Array<string>;
+    keywords: string[];
     location: string;
     label: string;
   }
 
   //alle optionen, die per Suchleiste gefunden werden können
-  const searchOptions: Array<SearchOptionProps> = [
-    { keywords: ["home", "main", "start"], location: "/", label: "Homepage" },
-    { keywords: ["price", "cost", "service"], location: "/prices", label: "Pricing & Bundles" },
-    { keywords: ["about", "main", "company"], location: "/about", label: "About Us" },
-    { keywords: ["cart", "shopping", "purchase"], location: "/cart", label: "Cart & Purchases" },
-    { keywords: ["tech", "code", "development"], location: "/tech", label: "Our Technologies" },
-    { keywords: ["account", "profile", "me"], location: "/account", label: "Your Account" },
-    { keywords: ["Contact", "Email", "Service"], location: "/contact", label: "Contact Us" },
-    { keywords: ["Help", "Q&A", "what"], location:"/help", label:"Get Help"},
-  ];
+  const searchOptions: Array<SearchOptionProps> = [...searchOptionsConfig];
 
   //funktion um input wert zu updaten
   const updatedSearchOptions = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newString = e.target.value;
     setInputValue(newString);
+    setInputValue((prevString: string) => prevString.toLowerCase());
   };
 
   //funktion um zu einer andere seite zu navigieren
