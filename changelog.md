@@ -41,3 +41,5 @@
 * technologies section done;
 * added techStack.json to hold tech
 * added image in design folder
+* added Custom bundel
+* added News navbar text
