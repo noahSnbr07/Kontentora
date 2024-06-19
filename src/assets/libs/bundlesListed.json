@@ -34,5 +34,17 @@
       "isResponsive": true,
       "hasContactForm": false,
       "color": "red"
+   },
+   {
+      "title": "Custom",
+      "userAuth": true,
+      "isPWA": true,
+      "hasLanguageToggle": true,
+      "isHosted": false,
+      "hasBackend": true,
+      "highSEO": true,
+      "isResponsive": true,
+      "hasContactForm": true,
+      "color": "red"
    }
 ]
