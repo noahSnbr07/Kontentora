@@ -86,7 +86,7 @@ export default function Landing() {
             <BundlePropContainer label={"Has a Responsive Design"} isActive={isResponsive} />
             <BundlePropContainer label={"Has A Contact Form"} isActive={hasContactForm} />
           </div>
-          <button className='bg-accent px-6 py-2 text-white rounded-full'> {"select"} </button>
+          <button className='bg-accent px-6 py-2 text-white rounded-full'> {"Select"} </button>
         </div>
       );
     }
