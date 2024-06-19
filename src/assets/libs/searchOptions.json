@@ -48,6 +48,7 @@
       "keywords": [
          "account",
          "profile",
+         "login",
          "me"
       ],
       "location": "/account",
@@ -74,5 +75,15 @@
       ],
       "location": "/help",
       "label": "Get Help"
+   },
+   {
+      "keywords": [
+         "new",
+         "whats new?",
+         "feature",
+         "update"
+      ],
+      "location": "/news",
+      "label": "News"
    }
 ]
