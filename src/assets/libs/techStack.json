@@ -1,0 +1,45 @@
+[
+   {
+      "id": 0,
+      "title": "React",
+      "description": "React is a Framework used to build interactive User interfaces",
+      "glowColor": "#61DAFB",
+      "link": "https://react.dev/"
+   },
+   {
+      "id": 1,
+      "title": "Tailwind",
+      "description": "Tailwind provides a very flexible way of styling components and pages",
+      "glowColor": "#61DAFB",
+      "link": "https://tailwindcss.com/"
+   },
+   {
+      "id": 2,
+      "title": "TypeScript",
+      "description": "TypeScript is known for it's type secured system to catch errors before runtime",
+      "glowColor": "#3178C6",
+      "link": "https://www.typescriptlang.org/"
+   },
+   {
+      "id": 3,
+      "title": "Firebase",
+      "description": "Firebase is our backend service handling auth, data, and buckets",
+      "glowColor": "#FFA712",
+      "link": "https://firebase.google.com/"
+   },
+   {
+      "id": 4,
+      "title": "Vite",
+      "image": "vite",
+      "description": "Vite is mainly a bundler to create small bundles of our applications",
+      "glowColor": "#A651FE",
+      "link": "https://vitejs.dev/"
+   },
+   {
+      "id": 5,
+      "title": "PWA",
+      "description": "PWA is our main way of creating web-based applications which can be installed on a device",
+      "glowColor": "#5A0FC8",
+      "link": "https://web.dev/explore/progressive-web-apps?hl=de"
+   }
+]

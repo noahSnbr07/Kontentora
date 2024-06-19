@@ -35,3 +35,9 @@
 * removed some unused images
 * added new tailwind color
 * added two new icons used in bundles
+
+## 19.06.2024
+* added several logos
+* technologies section done;
+* added techStack.json to hold tech
+* added image in design folder

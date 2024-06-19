@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import background from '../assets/images/background.png';
 import arrow from '../assets/icons/arrow_down.svg';
 import Header from '../components/Header.tsx';
 import bundlesListed from '../assets/libs/bundlesListed.json';
+import techStack from '../assets/libs/techStack.json';
 
 import noise from '../assets/images/noise.png';
+
 import bgTwo from '../assets/images/bg2.png';
+import bgThree from '../assets/images/bg3.png';
+
 import check from '../assets/icons/check.svg';
 import barrier from '../assets/icons/barrier.svg';
+
+import react from '../assets/logos/react.png';
+import tailwind from '../assets/logos/tailwind.png';
+import typescript from '../assets/logos/typescript.png';
+import firebase from '../assets/logos/firebase.png';
+import vite from '../assets/logos/vite.png';
+import pwa from '../assets/logos/pwa.png';
+
 export default function Landing() {
 
   //the main index screen
@@ -118,12 +130,60 @@ export default function Landing() {
     );
   }
 
+  interface TechProps {
+    id: number;
+    title: string;
+    description: string;
+    glowColor: string;
+    link: string;
+  }
+
+  const techs: Array<TechProps> = [...techStack];
   const Tech: React.FunctionComponent = (): JSX.Element => {
+
+    //css style rules for background
+    const style = { backgroundImage: `url(${bgThree})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' };
+
+    const images: string[] = [react, tailwind, typescript, firebase, vite, pwa,];
+
+    const TechnologyWindow = ({ title, description, glowColor, id, link }: TechProps) => {
+
+      const [descriptionShown, setDescriptionShow] = useState<boolean>(false);
+
+      return (
+        <div className={`bg-transparent-dark-50 flex backdrop-blur-3xl h-full flex-col justify-between items-center gap-5 p-5 max-w-[300px] rounded-xl`}>
+          <p className={`text-3xl text-white text-center'> {title} </p>`}> {title} </p>
+          <img
+            style={{ filter: `drop-shadow(0 0 25px ${glowColor})` }}
+            className={`w-3/4`} alt={`${title} logo`} loading='lazy' draggable={false} src={images[id]} />
+          <i className={`text-transparent-50 flex flex-col gap-2 ${!descriptionShown && "hidden"}`}>
+            {description} <br /> <a className='text-accent text-center underline' href={link}> More about {title} </a>
+          </i>
+          <button onClick={() => { setDescriptionShow(prev => !prev) }} className='bg-accent text-white rounded-full px-8 py-2'>
+            <b> {"Learn More"} </b>
+          </button>
+        </div>
+      );
+    }
+
     return (
-      <section className='h-full w-full flex justify-start p-8 flex-col items-center min-h-screen'>
+      <section
+        style={style}
+        className='min-h-screen w-full flex justify-center p-8 gap-20 flex-col items-center'>
         <Header label="Our Trusted Technologies" />
+        <div className='gap-8 grid grid-cols-3 grid-rows-2 place-items-center'>
+          {techs.map((tech: TechProps, index: number) =>
+            <TechnologyWindow
+              id={index}
+              key={index}
+              title={tech.title}
+              description={tech.description}
+              glowColor={tech.glowColor}
+              link={tech.link}
+            />)}
+        </div>
       </section>
-    )
+    );
   }
 
   const Contact: React.FunctionComponent = (): JSX.Element => {
