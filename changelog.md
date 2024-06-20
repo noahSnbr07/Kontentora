@@ -43,3 +43,7 @@
 * added image in design folder
 * added Custom bundel
 * added News navbar text
+
+## 20.06.2024
+* added routing for pages
+* added 404 page
