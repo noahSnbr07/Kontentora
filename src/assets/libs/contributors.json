@@ -1,0 +1,23 @@
+[
+   {
+      "image": "https://www.theweddingschool.in/wp-content/uploads/2021/04/placeholder-600x600-1.png",
+      "name": "Jonas",
+      "role": "Developer",
+      "instagram": "jonas.insta",
+      "gmail": "deine@gmail.com"
+   },
+   {
+      "image": "https://www.theweddingschool.in/wp-content/uploads/2021/04/placeholder-600x600-1.png",
+      "name": "Noah",
+      "role": "Developer",
+      "instagram": "noah.insta",
+      "gmail": "deine@gmail.com"
+   },
+   {
+      "image": "https://www.theweddingschool.in/wp-content/uploads/2021/04/placeholder-600x600-1.png",
+      "name": "Jannis",
+      "role": "Marketing",
+      "instagram": "jannis.insta",
+      "gmail": "deine@gmail.com"
+   }
+]

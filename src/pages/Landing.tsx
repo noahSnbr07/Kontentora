@@ -9,9 +9,15 @@ import noise from '../assets/images/noise.png';
 
 import bgTwo from '../assets/images/bg2.png';
 import bgThree from '../assets/images/bg3.png';
+import bgFour from '../assets/images/bg4.png';
 
 import check from '../assets/icons/check.svg';
 import barrier from '../assets/icons/barrier.svg';
+import code from '../assets/icons/code.svg';
+import mail from '../assets/icons/mail.svg';
+import social from '../assets/icons/social.svg';
+import design from '../assets/icons/design.svg';
+import marketing from '../assets/icons/marketing.svg';
 
 import react from '../assets/logos/react.png';
 import tailwind from '../assets/logos/tailwind.png';
@@ -19,6 +25,8 @@ import typescript from '../assets/logos/typescript.png';
 import firebase from '../assets/logos/firebase.png';
 import vite from '../assets/logos/vite.png';
 import pwa from '../assets/logos/pwa.png';
+
+import contributorsJSON from '../assets/libs/contributors.json';
 
 export default function Landing() {
 
@@ -186,12 +194,74 @@ export default function Landing() {
     );
   }
 
-  const Contact: React.FunctionComponent = (): JSX.Element => {
+  interface GetInTouchSectionProps {
+    image: string;
+    name: string;
+    role: string;
+    instagram: string;
+    gmail: string;
+  }
+
+  //display our team
+  const contributors: GetInTouchSectionProps[] = [...contributorsJSON]
+
+  const GetInTouchSection = (): JSX.Element => {
+
+    const getRoleIcon = (role: string): string => {
+      let icon: string;
+      switch (role.toLowerCase()) {
+        case "developer": icon = code; break;
+        case "designer": icon = design; break;
+        case "marketing": icon = marketing; break;
+
+        case "social": icon = social; break;
+        case "mail": icon = mail; break;
+
+        default: icon = "N/A"; break;
+      }
+      return icon;
+    }
+
+    interface ContributorSinglePropertyProps {
+      icon: string;
+      value: String;
+    }
+
+    const ContributorSingleProperty = ({ icon, value }: ContributorSinglePropertyProps) => {
+      return (
+        <i className='text-transparent-50 flex gap-3'>
+          <img src={getRoleIcon(icon)} alt="icon" /> <p> {value}  </p>
+        </i>
+      );
+    }
+
     return (
-      <section className='h-full w-full flex justify-start p-8 flex-col items-center min-h-screen'>
-        <Header label="Get in Touch" />
+      <section
+        style={{ backgroundImage: `url(${bgFour})`, objectFit: 'cover', backgroundPosition: 'center' }}
+        className='h-screen w-full flex flex-col justify-center gap-8 items-center'>
+        <Header label='Our Team' />
+        <div className='flex gap-8'>
+          {contributors?.map((contributor: GetInTouchSectionProps) => (
+            <div className='bg-transparent-d-50 rounded-xl backdrop-blur-3xl flex flex-col justify-start gap-5 items-center p-5 text-white'>
+              <img
+                src={contributor.image}
+                alt={`${contributor.name} image`}
+                loading='lazy'
+                draggable={false}
+                className='max-h-60 rounded-full' />
+
+              <b className='text-3xl'> {contributor.name} </b>
+
+              <div className='flex flex-col items-center gap-2'>
+                <ContributorSingleProperty icon={"social"} value={contributor.instagram} />
+                <ContributorSingleProperty icon={"mail"} value={contributor.gmail} />
+                <ContributorSingleProperty icon={contributor.role} value={contributor.role} />
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
-    )
+    );
   }
 
   return (
@@ -200,7 +270,7 @@ export default function Landing() {
       <AboutPage />
       <PricingPage />
       <Tech />
-      <Contact />
+      <GetInTouchSection />
     </div>
   );
 }

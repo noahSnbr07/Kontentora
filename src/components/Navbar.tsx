@@ -21,7 +21,7 @@ export default function Navbar(): JSX.Element {
     { name: "Home", url: "/" },
     { name: "Pricing", url: "/pricing" },
     { name: "About", url: "/about" },
-    {name: "News", url:"/help"},
+    { name: "News", url: "/help" },
     { name: "Cart", url: "/cart" },
     { name: "Tech", url: "/tech" },
     { name: "Account", url: "/account" },

@@ -51,3 +51,6 @@
 ## 21.06.2024
 * added Website custom icon
 * updated 404 Error side
+* added several new icons
+* added contact section in Landing.tsx
+* added contributors.json to hold all contact people
