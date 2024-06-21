@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Landing from "./pages/Landing";
 import Pricing from "./pages/pricing";
 import Notfound from "./pages/notfound";
+
 export default function App() {
   return (
     <>
@@ -16,10 +17,12 @@ export default function App() {
           {/* This is the route for an invalid route e.g.: 404 Route */}
           <Route path="*" element={<Notfound/>} />
 
+          //Pricing page
           <Route path="/pricing" element={<Pricing/>} />
 
         </Routes>
       </main>
     </>
   );
-}
+} 
+
