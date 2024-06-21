@@ -47,3 +47,7 @@
 ## 20.06.2024
 * added routing for pages
 * added 404 page
+
+## 21.06.2024
+* added Website custom icon
+* updated 404 Error side
