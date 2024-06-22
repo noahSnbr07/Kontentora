@@ -4,7 +4,6 @@ import arrow from '../assets/icons/arrow_down.svg';
 import Header from '../components/Header.tsx';
 import bundlesListed from '../assets/libs/bundlesListed.json';
 import techStack from '../assets/libs/techStack.json';
-import { motion } from "framer-motion"
 
 import noise from '../assets/images/noise.png';
 
@@ -47,7 +46,7 @@ export default function Landing() {
       <section
         style={style}
         className="h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold">
-        <p> The Place where <br /> Imagination becomes <br />
+        <p> The Place where <br  /> Imagination becomes <br />
           <span className='text-accent'> Reality </span>
         </p>
         <img src={arrow} alt='arrow down' draggable={false} className='cursor-pointer' onClick={() => void scrollToNextPage()} />
