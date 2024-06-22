@@ -4,6 +4,7 @@ import arrow from '../assets/icons/arrow_down.svg';
 import Header from '../components/Header.tsx';
 import bundlesListed from '../assets/libs/bundlesListed.json';
 import techStack from '../assets/libs/techStack.json';
+import { motion } from "framer-motion"
 
 import noise from '../assets/images/noise.png';
 
