@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import background from '../assets/images/background.png';
 import arrow from '../assets/icons/arrow_down.svg';
 import Header from '../components/Header.tsx';
@@ -27,8 +27,12 @@ import vite from '../assets/logos/vite.png';
 import pwa from '../assets/logos/pwa.png';
 
 import contributorsJSON from '../assets/libs/contributors.json';
+import { useStringContext } from '../context/StringProvider.tsx';
 
 export default function Landing() {
+
+
+  const [currentSection, setCurrentSection] = useStringContext();
 
   //the main index screen
   const GreetingScreen: React.FunctionComponent = (): JSX.Element => {
@@ -57,6 +61,10 @@ export default function Landing() {
       </section>
     );
   }
+
+  useEffect(() => {
+    window.scrollTo({ top: window.innerHeight * currentSection });
+  }, [currentSection])
 
   interface BundleProps {
     title: string;
@@ -241,8 +249,10 @@ export default function Landing() {
         className='h-screen w-full flex flex-col justify-center gap-8 items-center'>
         <Header label='Our Team' />
         <div className='flex gap-8'>
-          {contributors?.map((contributor: GetInTouchSectionProps) => (
-            <div className='bg-transparent-d-50 rounded-xl backdrop-blur-3xl flex flex-col justify-start gap-5 items-center p-5 text-white'>
+          {contributors?.map((contributor: GetInTouchSectionProps, index: number) => (
+            <div
+              key={index}
+              className='bg-transparent-d-50 rounded-xl backdrop-blur-3xl flex flex-col justify-start gap-5 items-center p-5 text-white'>
               <img
                 src={contributor.image}
                 alt={`${contributor.name} image`}

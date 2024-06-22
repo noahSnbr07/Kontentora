@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
+import { StringProvider } from './context/StringProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <StringProvider>
+        <App />
+      </StringProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );

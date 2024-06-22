@@ -1,5 +1,6 @@
 [
    {
+      "index": 0,
       "keywords": [
          "home",
          "main",
@@ -9,6 +10,7 @@
       "label": "Homepage"
    },
    {
+      "index": 2,
       "keywords": [
          "price",
          "cost",
@@ -18,6 +20,7 @@
       "label": "Pricing & Bundles"
    },
    {
+      "index": 1,
       "keywords": [
          "about",
          "main",
@@ -27,6 +30,7 @@
       "label": "About Us"
    },
    {
+      "index": 0,
       "keywords": [
          "cart",
          "shopping",
@@ -36,6 +40,7 @@
       "label": "Cart & Purchases"
    },
    {
+      "index": 0,
       "keywords": [
          "tech",
          "code",
@@ -45,6 +50,7 @@
       "label": "Our Technologies"
    },
    {
+      "index": 0,
       "keywords": [
          "account",
          "profile",
@@ -55,6 +61,7 @@
       "label": "Your Account"
    },
    {
+      "index": 4,
       "keywords": [
          "contact",
          "email",
@@ -64,6 +71,7 @@
       "label": "Contact Us"
    },
    {
+      "index": 0,
       "keywords": [
          "help",
          "q&a",
@@ -77,6 +85,7 @@
       "label": "Get Help"
    },
    {
+      "index": 0,
       "keywords": [
          "new",
          "whats new?",

@@ -1,7 +1,8 @@
-import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import logo from '../assets/images/icon_dark.png';
 import { useState } from 'react';
 import searchOptionsConfig from '../assets/libs/searchOptions.json';
+
+import { useStringContext } from '../context/StringProvider';
 
 export default function Navbar(): JSX.Element {
   // Search bar input variables
@@ -11,38 +12,41 @@ export default function Navbar(): JSX.Element {
   // Struktur für das Link-Array
   interface NavbarLinkProps {
     name: string;
-    url: string;
+    index: number;
   }
 
-  const navigate = useNavigate();
+  const [, setCurrentSection] = useStringContext();
 
   // Alle Links als ein Array
   const links: Array<NavbarLinkProps> = [
-    { name: "Home", url: "/" },
-    { name: "Pricing", url: "/pricing" },
-    { name: "About", url: "/about" },
-    { name: "News", url: "/help" },
-    { name: "Cart", url: "/cart" },
-    { name: "Tech", url: "/tech" },
-    { name: "Account", url: "/account" },
-    { name: "Help", url: "/help" },
-    { name: "Contact", url: "/contact" },
+    { name: "Home", index: 0 },
+    { name: "About", index: 1 },
+    { name: "Pricing", index: 2 },
+    { name: "Tech", index: 3 },
+    { name: "Contact", index: 8 },
+    { name: "News", index: 4 },
+    { name: "Cart", index: 5 },
+    { name: "Account", index: 6 },
+    { name: "Help", index: 7 },
   ];
 
   // Link-Komponente
-  const NavBarLink: React.FunctionComponent<NavbarLinkProps> = ({ name, url }: NavbarLinkProps) => {
+  const NavBarLink: React.FunctionComponent<NavbarLinkProps> = ({ name, index }: NavbarLinkProps) => {
     // Parse the current location
-    const resolvedPath = useResolvedPath(url);
-    const isMatch = useMatch({ path: resolvedPath.pathname, end: true });
+    // const resolvedPath = useResolvedPath(index.toString());
+    // const isMatch = useMatch({ path: resolvedPath.pathname, end: true });
+
+    const updateCurrentSection = (index: number) => {
+      setCurrentSection(index);
+    }
 
     // Color the current location white and add animation class if needed
     return (
-      <Link
-        className={`${isMatch ? 'text-white' : 'text-transparent-50'} hover:scale-110 transition-all`}
-        replace={true}
-        to={url}>
+      <button
+        onClick={() => { updateCurrentSection(index) }}
+        className={`hover:scale-110 transition-all`}>
         {name}
-      </Link>
+      </button>
     );
   };
 
@@ -51,6 +55,7 @@ export default function Navbar(): JSX.Element {
     keywords: string[];
     location: string;
     label: string;
+    index: number;
   }
 
   //alle optionen, die per Suchleiste gefunden werden können
@@ -64,14 +69,15 @@ export default function Navbar(): JSX.Element {
   };
 
   //funktion um zu einer andere seite zu navigieren
-  const gotoPage = (url: string) => {
+  const gotoPage = (index: number) => {
     setSearchBarFocused(false);
-    navigate(url);
+    console.log("optionIndex: " + index)
+    setCurrentSection(index);
   };
 
   //box, die ergebnisse anzeigt
-  const SearchOptionsDisplayBox = () => {
-    const filteredOptions = searchOptions.filter((option) => {
+  const SearchOptionsDisplayBox = (): JSX.Element => {
+    const filteredOptions = searchOptions.filter((option): boolean => {
       const keywords = inputValue.toLowerCase().split(" ");
       return keywords.some((keyword) => option.keywords.some((keyword2) => keyword2.includes(keyword)));
     });
@@ -82,9 +88,9 @@ export default function Navbar(): JSX.Element {
           style={{ transform: 'translate(-50%, -50%)', overflow: 'scroll' }}
           className='absolute bg-dimming backdrop-blur-3xl top-[50%] translate-x-1/2 translate-y-1/2 left-[50%] w-1/2 h-1/2 flex flex-col rounded-xl p-3'>
           <button className='p-3' onClick={() => void setSearchBarFocused(false)}>{"> Close This Panel <"}</button>
-          {filteredOptions.map((option) =>
+          {filteredOptions.map((option: SearchOptionProps) =>
             <div
-              onClick={() => void gotoPage(option.location)}
+              onClick={() => void gotoPage(option.index)}
               className='w-full p-3 border-b-2 border-transparent-10 even:bg-transparent-10'>
               {option.label}
             </div>
@@ -108,7 +114,7 @@ export default function Navbar(): JSX.Element {
       </div>
       <div className='justify-end flex gap-8'>
         {links.map((link: NavbarLinkProps, index: number) =>
-          <NavBarLink name={link.name} url={link.url} key={index} />
+          <NavBarLink name={link.name} index={link.index} key={index} />
         )}
       </div>
       {searchBarFocused && <SearchOptionsDisplayBox />}
