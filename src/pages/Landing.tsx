@@ -26,6 +26,7 @@ import typescript from '../assets/logos/typescript.png';
 import firebase from '../assets/logos/firebase.png';
 import vite from '../assets/logos/vite.png';
 import pwa from '../assets/logos/pwa.png';
+import forum from '../assets/icons/forum.svg';
 
 import contributorsJSON from '../assets/libs/contributors.json';
 import { useStringContext } from '../context/StringProvider.tsx';
@@ -254,7 +255,7 @@ export default function Landing() {
             <div
               key={index}
               className='bg-transparent-d-50 rounded-xl backdrop-blur-3xl flex flex-col justify-start gap-5 items-center p-5 text-white'>
-              <motion.img whileHover={{ scale: 1.1 }}
+              <motion.img whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }}
                 src={contributor.image}
                 alt={`${contributor.name} image`}
                 loading='lazy'
