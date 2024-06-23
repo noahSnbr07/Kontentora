@@ -5,6 +5,7 @@ import Header from '../components/Header.tsx';
 import bundlesListed from '../assets/libs/bundlesListed.json';
 import techStack from '../assets/libs/techStack.json';
 import { motion } from "framer-motion";
+import { useScroll } from "framer-motion";
 
 import noise from '../assets/images/noise.png';
 
@@ -26,10 +27,10 @@ import typescript from '../assets/logos/typescript.png';
 import firebase from '../assets/logos/firebase.png';
 import vite from '../assets/logos/vite.png';
 import pwa from '../assets/logos/pwa.png';
-import forum from '../assets/icons/forum.svg';
 
 import contributorsJSON from '../assets/libs/contributors.json';
 import { useStringContext } from '../context/StringProvider.tsx';
+import { once } from 'events';
 
 export default function Landing() {
 
@@ -127,7 +128,17 @@ export default function Landing() {
         style={{ background: `url(${bgTwo})`, backgroundSize: 'cover', }}
         className='h-full w-full flex flex-col justify-center p-8 items-start min-h-screen gap-20'>
         <Header label="What we offer" />
-        <div className='flex justify-center flex-wrap w-full gap-5'>
+        <motion.div 
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1, 
+          transition: {
+            duration: 0.5,
+            type: "spring", stiffness: 40,
+          } }}
+          viewport={{
+            once: true,
+          }}
+         className='flex justify-center flex-wrap w-full gap-5'>
           {bundles.map((bundle: BundleProps, index: number) => (
             <Bundle
               key={index}
@@ -143,7 +154,7 @@ export default function Landing() {
               color={bundle.color}
             />
           ))}
-        </div>
+        </motion.div>
       </section>
     );
   }
@@ -189,7 +200,20 @@ export default function Landing() {
         style={style}
         className='min-h-screen w-full flex justify-center p-8 gap-20 flex-col items-center'>
         <Header label="Our Trusted Technologies" />
-        <motion.div className='gap-8 grid grid-cols-3 grid-rows-2 place-items-center'>
+        <motion.div initial={{
+          x: -700,
+        }} 
+        whileInView={{
+          x: 20,
+          duration: 4,
+          transition: {
+            type: "spring", stiffness: 40,
+          }
+        }} 
+        viewport={{
+          once: true,
+        }}
+        className='gap-8 grid grid-cols-3 grid-rows-2 place-items-center'>
           {techs.map((tech: TechProps, index: number) =>
             <TechnologyWindow
               id={index}
@@ -246,11 +270,25 @@ export default function Landing() {
     }
 
     return (
-      <section
+      <motion.section
         style={{ backgroundImage: `url(${bgFour})`, objectFit: 'cover', backgroundPosition: 'center' }}
         className='h-screen w-full flex flex-col justify-center gap-8 items-center'>
         <Header label='Our Team' />
-        <div className='flex gap-8'>
+        <motion.div initial={{
+          x: 700,
+        }} 
+        whileInView={{
+          x: 20,
+          duration: 9,
+          delay: 1,
+          transition: {
+            type: "spring", stiffness: 60,
+          }
+        }}
+        viewport={{
+          once: true,
+        }}
+        className='flex gap-8'>
           {contributors?.map((contributor: GetInTouchSectionProps, index: number) => (
             <div
               key={index}
@@ -271,8 +309,8 @@ export default function Landing() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
     );
   }
 
