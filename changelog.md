@@ -63,3 +63,11 @@
 ## 23.06.2024
 * added new Animations
 * slide in Animation
+* created [images.ts] to hold ALL images and export them
+* split [Landing.tsx] into sub Components
+* fixed typo in image name
+* added several new animations
+* added 5 new icons and images
+* added a fallback font to [index.css]
+* created [TODO.md]
+* added new design image

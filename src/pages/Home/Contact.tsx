@@ -41,9 +41,9 @@ export default function Contact(): JSX.Element {
 
    const ContributorSingleProperty = ({ icon, value }: ContributorSinglePropertyProps) => {
       return (
-         <i className='text-transparent-50 flex gap-3'>
-            <motion.img whileHover={{ scale: 1.2 }} src={getRoleIcon(icon)} alt="icon" /> <p> {value}  </p>
-         </i>
+         <motion.i whileHover={{ scale: 1.05 }} className='text-transparent-50 flex gap-3'>
+            <img src={getRoleIcon(icon)} alt="icon" /> <p> {value}  </p>
+         </motion.i>
       );
    }
 
@@ -52,15 +52,16 @@ export default function Contact(): JSX.Element {
          style={{ backgroundImage: `url(${bg4})`, objectFit: 'cover', backgroundPosition: 'center' }}
          className='min-h-screen w-full flex justify-center p-8 gap-20 flex-col items-center'>
          <Header label='Our Team' />
-         <motion.div initial={{
-            x: 700,
-         }}
+         <motion.div
+            initial={{
+               x: '100%',
+            }}
             whileInView={{
-               x: 20,
+               x: 0,
                duration: 9,
-               delay: 1,
+               delay: 5,
                transition: {
-                  type: "spring", stiffness: 60,
+                  type: "spring", stiffness: 50,
                }
             }}
             viewport={{
@@ -71,7 +72,7 @@ export default function Contact(): JSX.Element {
                <div
                   key={index}
                   className='bg-transparent-d-50 rounded-xl backdrop-blur-3xl flex flex-col justify-start gap-5 items-center p-5 text-white'>
-                  <motion.img whileHover={{ scale: 1.1 }} whileTap={{ scale: 1.2 }}
+                  <img
                      src={contributor.image}
                      alt={`${contributor.name} image`}
                      loading='lazy'

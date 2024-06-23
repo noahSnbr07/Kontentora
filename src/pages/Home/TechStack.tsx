@@ -1,10 +1,10 @@
 import techStack from '../../assets/libs/techStack.json';
 
-import { vite, react, firebase, typescript, pwa, tailwind, bg3 } from '../../config/images.ts';
+import { vite, react, firebase, typescript, pwa, tailwind, bg3, close, add } from '../../config/images.ts';
 
 import { useState } from 'react';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Header from '../../components/Header';
 
 export default function TechStack() {
@@ -34,11 +34,26 @@ export default function TechStack() {
             <img
                style={{ filter: `drop-shadow(0 0 25px ${glowColor})` }}
                className={`w-3/4`} alt={`${title} logo`} loading='lazy' draggable={false} src={images[id]} />
-            <i className={`text-transparent-50 flex flex-col gap-2 ${!descriptionShown && "hidden"}`}>
-               {description} <br /> <a className='text-accent text-center underline' href={link}> More about {title} </a>
-            </i>
-            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => { setDescriptionShow(prev => !prev) }} className='bg-accent text-white rounded-full px-8 py-2'>
-               <b> {"Learn More"} </b>
+
+            <AnimatePresence>
+               {descriptionShown && (
+                  <motion.i
+                     initial={{ opacity: 0 }}
+                     animate={{ opacity: 1 }}
+                     exit={{ opacity: 0 }}
+                     className={`text-transparent-50 flex flex-col gap-2`}>
+                     {description}
+                     <a className='text-accent text-center underline' href={link}> More about {title} </a>
+                  </motion.i>
+               )}
+            </AnimatePresence>
+
+            <motion.button
+               whileHover={{ scale: 1.1 }}
+               whileTap={{ scale: 0.9 }}
+               onClick={() => { setDescriptionShow(prev => !prev) }}
+               className={`bg-accent ${descriptionShown && 'opacity-50'} text-white rounded-full px-5 py-2 flex gap-3`}>
+               <img src={descriptionShown ? close : add} /> {descriptionShown ? 'Close' : 'Learn'}
             </motion.button>
          </div>
       );
