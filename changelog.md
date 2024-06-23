@@ -62,3 +62,4 @@
 
 ## 23.06.2024
 * added new Animations
+* slide in Animation

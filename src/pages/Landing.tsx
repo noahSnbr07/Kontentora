@@ -5,7 +5,6 @@ import Header from '../components/Header.tsx';
 import bundlesListed from '../assets/libs/bundlesListed.json';
 import techStack from '../assets/libs/techStack.json';
 import { motion } from "framer-motion";
-import { useScroll } from "framer-motion";
 
 import noise from '../assets/images/noise.png';
 
@@ -30,12 +29,11 @@ import pwa from '../assets/logos/pwa.png';
 
 import contributorsJSON from '../assets/libs/contributors.json';
 import { useStringContext } from '../context/StringProvider.tsx';
-import { once } from 'events';
 
 export default function Landing() {
 
-
-  const [currentSection, setCurrentSection] = useStringContext();
+/*  */
+  const [currentSection,] = useStringContext();
 
   //the main index screen
   const GreetingScreen: React.FunctionComponent = (): JSX.Element => {
@@ -122,6 +120,7 @@ export default function Landing() {
       );
     }
 
+    //motion. can be typed infront of every HTML tag to make it a Motion component
 
     return (
       <section
@@ -132,8 +131,8 @@ export default function Landing() {
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 1, 
           transition: {
-            duration: 0.5,
             type: "spring", stiffness: 40,
+            duration: 0.5,
           } }}
           viewport={{
             once: true,
