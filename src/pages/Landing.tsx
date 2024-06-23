@@ -57,9 +57,9 @@ export default function Landing() {
 
   const AboutPage: React.FunctionComponent = (): JSX.Element => {
     return (
-      <section className='h-full w-full flex justify-center p-8 items-start min-h-screen'>
+      <motion.section className='h-full w-full flex justify-center p-8 items-start min-h-screen'>
         <Header label="About Our Buissnes" />
-      </section>
+      </motion.section>
     );
   }
 
@@ -176,7 +176,7 @@ export default function Landing() {
           <i className={`text-transparent-50 flex flex-col gap-2 ${!descriptionShown && "hidden"}`}>
             {description} <br /> <a className='text-accent text-center underline' href={link}> More about {title} </a>
           </i>
-          <motion.button whileHover={{ scale: 1.1 }} onClick={() => { setDescriptionShow(prev => !prev) }} className='bg-accent text-white rounded-full px-8 py-2'>
+          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => { setDescriptionShow(prev => !prev) }} className='bg-accent text-white rounded-full px-8 py-2'>
             <b> {"Learn More"} </b>
           </motion.button>
         </div>
