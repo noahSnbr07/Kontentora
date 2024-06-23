@@ -59,3 +59,6 @@
 * added global context to hold the current section scroll index
 * implemented scroll logic in Navbar component
 * added indexes to each link in [searchOptions.json]
+
+## 23.06.2024
+* added new Animations
