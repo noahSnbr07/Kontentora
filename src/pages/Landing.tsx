@@ -4,6 +4,7 @@ import arrow from '../assets/icons/arrow_down.svg';
 import Header from '../components/Header.tsx';
 import bundlesListed from '../assets/libs/bundlesListed.json';
 import techStack from '../assets/libs/techStack.json';
+import { motion } from "framer-motion";
 
 import noise from '../assets/images/noise.png';
 
@@ -46,10 +47,10 @@ export default function Landing() {
       <section
         style={style}
         className="h-full w-full flex flex-col items-center gap-5 justify-center text-5xl text-white font-bold">
-        <p> The Place where <br  /> Imagination becomes <br />
-          <span className='text-accent'> Reality </span>
+        <p> The Place where <br /> Imagination becomes <br />
+          <motion.span className='text-accent'> Reality </motion.span>
         </p>
-        <img src={arrow} alt='arrow down' draggable={false} className='cursor-pointer' onClick={() => void scrollToNextPage()} />
+        <motion.img whileHover={{ scale: 1.5 }} src={arrow} alt='arrow down' draggable={false} className='cursor-pointer' onClick={() => void scrollToNextPage()} />
       </section>
     );
   }
@@ -100,7 +101,7 @@ export default function Landing() {
       );
 
       return (
-        <div
+        <motion.div animate={{scale:1}}
           style={{ backgroundImage: `url(${noise})`, backgroundSize: 'stretch', }}
           className='bg-transparent-dark-50 backdrop-blur-3xl flex flex-col items-center min-h-full gap-8 p-5 rounded-xl'>
           <p className='bg-transparent-10 rounded-xl w-full p-3 text-center text-white text-2xl'> {title} </p>
@@ -114,8 +115,8 @@ export default function Landing() {
             <BundlePropContainer label={"Has a Responsive Design"} isActive={isResponsive} />
             <BundlePropContainer label={"Has A Contact Form"} isActive={hasContactForm} />
           </div>
-          <button className='bg-accent px-6 py-2 text-white rounded-full'> {"Select"} </button>
-        </div>
+          <motion.button whileHover={{ scale: 1.1 }} className='bg-accent px-6 py-2 text-white rounded-full'> {"Select"} </motion.button>
+        </motion.div>
       );
     }
 
@@ -175,9 +176,9 @@ export default function Landing() {
           <i className={`text-transparent-50 flex flex-col gap-2 ${!descriptionShown && "hidden"}`}>
             {description} <br /> <a className='text-accent text-center underline' href={link}> More about {title} </a>
           </i>
-          <button onClick={() => { setDescriptionShow(prev => !prev) }} className='bg-accent text-white rounded-full px-8 py-2'>
+          <motion.button whileHover={{ scale: 1.1 }} onClick={() => { setDescriptionShow(prev => !prev) }} className='bg-accent text-white rounded-full px-8 py-2'>
             <b> {"Learn More"} </b>
-          </button>
+          </motion.button>
         </div>
       );
     }
@@ -187,7 +188,7 @@ export default function Landing() {
         style={style}
         className='min-h-screen w-full flex justify-center p-8 gap-20 flex-col items-center'>
         <Header label="Our Trusted Technologies" />
-        <div className='gap-8 grid grid-cols-3 grid-rows-2 place-items-center'>
+        <motion.div className='gap-8 grid grid-cols-3 grid-rows-2 place-items-center'>
           {techs.map((tech: TechProps, index: number) =>
             <TechnologyWindow
               id={index}
@@ -197,7 +198,7 @@ export default function Landing() {
               glowColor={tech.glowColor}
               link={tech.link}
             />)}
-        </div>
+        </motion.div>
       </section>
     );
   }
@@ -238,7 +239,7 @@ export default function Landing() {
     const ContributorSingleProperty = ({ icon, value }: ContributorSinglePropertyProps) => {
       return (
         <i className='text-transparent-50 flex gap-3'>
-          <img src={getRoleIcon(icon)} alt="icon" /> <p> {value}  </p>
+          <motion.img whileHover={{ scale: 1.2 }} src={getRoleIcon(icon)} alt="icon" /> <p> {value}  </p>
         </i>
       );
     }
@@ -253,7 +254,7 @@ export default function Landing() {
             <div
               key={index}
               className='bg-transparent-d-50 rounded-xl backdrop-blur-3xl flex flex-col justify-start gap-5 items-center p-5 text-white'>
-              <img
+              <motion.img whileHover={{ scale: 1.1 }}
                 src={contributor.image}
                 alt={`${contributor.name} image`}
                 loading='lazy'

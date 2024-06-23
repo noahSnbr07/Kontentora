@@ -1,6 +1,7 @@
 import logo from '../assets/images/icon_dark.png';
 import { useState } from 'react';
 import searchOptionsConfig from '../assets/libs/searchOptions.json';
+import { motion } from "framer-motion";
 
 import { useStringContext } from '../context/StringProvider';
 
@@ -42,11 +43,11 @@ export default function Navbar(): JSX.Element {
 
     // Color the current location white and add animation class if needed
     return (
-      <button
+      <motion.button
         onClick={() => { updateCurrentSection(index) }}
         className={`hover:scale-110 transition-all`}>
         {name}
-      </button>
+      </motion.button>
     );
   };
 
