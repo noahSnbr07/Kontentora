@@ -38,11 +38,13 @@ export default function About() {
 
             <article className='flex flex-col gap-3'>
                <h2 className='text-5xl'> {"About Kontentora"} </h2>
+               <br />
                <div className='text-3xl'>
                   <p> We focus on delivering </p>
                   <p> High-Performant, Accessible, Customizable Products </p>
                   <p> including Web Sites, Applications and Services </p>
                </div>
+               <br />
                <button onClick={() => void scrollToContact()} className='bg-accent px-5 py-2 rounded-full w-fit text-2xl'>
                   {"Contact Us"}
                </button>
