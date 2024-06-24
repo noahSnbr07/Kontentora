@@ -77,7 +77,8 @@ export default function TechStack() {
             viewport={{
                once: true,
             }}
-            className='gap-8 grid grid-cols-3 grid-rows-2 place-items-center'>
+
+            className='gap-8 grid grid-cols-1 grid-rows-6 sm:grid-cols-3 sm:grid-rows-2 place-items-center'>
             {techs.map((tech: TechProps, index: number) =>
                <TechnologyWindow
                   id={index}

@@ -1,7 +1,7 @@
 import logo from '../assets/images/icon_dark.png';
 import { useState } from 'react';
 import searchOptionsConfig from '../assets/libs/searchOptions.json';
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { useStringContext } from '../context/StringProvider';
 
@@ -25,10 +25,6 @@ export default function Navbar(): JSX.Element {
     { name: "Pricing", index: 2 },
     { name: "Tech", index: 3 },
     { name: "Contact", index: 8 },
-    { name: "News", index: 4 },
-    { name: "Cart", index: 5 },
-    { name: "Account", index: 6 },
-    { name: "Help", index: 7 },
   ];
 
   // Link-Komponente
@@ -57,6 +53,38 @@ export default function Navbar(): JSX.Element {
     location: string;
     label: string;
     index: number;
+  }
+
+  function DropDownMenu() {
+
+    const [isOpen, setOpen] = useState<boolean>(false);
+
+    return (
+      <div className='block xl:hidden absolute top-1/2 -translate-y-1/2 flex-col gap-5'>
+        <button onClick={() => void setOpen(prev => !prev)} className='px-5 py-2 border-2 border-white rounded-full'> {"Sections"} </button>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.ul
+              className="absolute top-full w-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+
+              {links.map((link: NavbarLinkProps, index: number) =>
+                <li className='odd:bg-transparent-10 text-center p-3'>
+                  <NavBarLink name={link.name} index={link.index} key={index} />
+                </li>
+              )}
+              <li className='odd:bg-transparent-10 text-center p-3'>
+                <button onClick={() => { setOpen(false) }}> {"Close"} </button>
+              </li>
+
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </div>
+    )
   }
 
   //alle optionen, die per Suchleiste gefunden werden können
@@ -113,10 +141,14 @@ export default function Navbar(): JSX.Element {
           className={`bg-transparent-10 p-3 h-10 rounded-full relative ${searchBarFocused ? 'w-full' : 'w-1/4'}`}
         />
       </div>
-      <div className='justify-end flex gap-8'>
+      <div className='justify-end flex gap-8 relative'>
         {links.map((link: NavbarLinkProps, index: number) =>
-          <NavBarLink name={link.name} index={link.index} key={index} />
+          <div className='hidden xl:block'>
+            <NavBarLink name={link.name} index={link.index} key={index} />
+          </div>
         )}
+
+        <DropDownMenu />
       </div>
       {searchBarFocused && <SearchOptionsDisplayBox />}
     </nav>

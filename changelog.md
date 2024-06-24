@@ -71,3 +71,7 @@
 * added a fallback font to [index.css]
 * created [TODO.md]
 * added new design image
+
+## 24.06.2024
+* made several components responsive on mobile devices
+* removed some unused links for now

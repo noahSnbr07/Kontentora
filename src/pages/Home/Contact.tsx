@@ -67,7 +67,7 @@ export default function Contact(): JSX.Element {
             viewport={{
                once: true,
             }}
-            className='flex gap-8'>
+            className='flex gap-8 flex-col sm:flex-row'>
             {contributors?.map((contributor: GetInTouchSectionProps, index: number) => (
                <div
                   key={index}

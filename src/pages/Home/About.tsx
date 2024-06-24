@@ -20,7 +20,7 @@ export default function About() {
          style={{ backgroundImage: `url(${bg5})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}
          className='h-screen w-full flex justify-center p-8 gap-20 flex-col items-center text-white'>
          <motion.div
-            className="w-full flex justify-between p-8"
+            className="w-full flex flex-col gap-8 justify-between sm:flex-row"
             initial={{
                x: '100%',
             }}
@@ -36,8 +36,8 @@ export default function About() {
                once: true,
             }}>
 
-            <article className='flex flex-col gap-3'>
-               <h2 className='text-5xl'> {"About Kontentora"} </h2>
+            <article className='flex flex-col gap-3 items-center'>
+               <h2 className='text-5xl text-center'> {"About Kontentora"} </h2>
                <br />
                <div className='text-3xl'>
                   <p> We focus on delivering </p>
@@ -49,10 +49,10 @@ export default function About() {
                   {"Contact Us"}
                </button>
             </article>
-            <div>
 
+            <div className='w-full flex justify-center flex-col items-center'>
                <img
-                  className=''
+                  className=' max-w-60'
                   src={images[imageIndex]}
                   alt={`image of`}
                   draggable={false}
