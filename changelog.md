@@ -75,3 +75,4 @@
 ## 24.06.2024
 * made several components responsive on mobile devices
 * removed some unused links for now
+* fixed minor framer issue

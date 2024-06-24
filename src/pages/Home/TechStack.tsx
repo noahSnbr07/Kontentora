@@ -65,7 +65,7 @@ export default function TechStack() {
          className='min-h-screen w-full flex justify-center p-8 gap-20 flex-col items-center'>
          <Header label="Our Trusted Technologies" />
          <motion.div initial={{
-            x: -700,
+            x: '-100%',
          }}
             whileInView={{
                x: 20,
