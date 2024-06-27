@@ -27,7 +27,7 @@ export default function About() {
             whileInView={{
                x: 0,
                duration: 9,
-               delay: 5,
+               delay: 9,
                transition: {
                   type: "spring", stiffness: 50,
                }
