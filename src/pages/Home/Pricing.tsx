@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-
 import { bg2, check, barrier, noise } from '../../config/images';
-
 import bundlesListed from '../../assets/libs/bundlesListed.json';
 import Header from '../../components/Header';
 
@@ -20,7 +18,6 @@ export default function Pricing() {
       color: string;
    }
 
-
    const bundles: Array<BundleProps> = [...bundlesListed];
 
    const Bundle = ({ title, userAuth, isPWA, isHosted, hasLanguageToggle, hasBackend, highSEO, isResponsive, hasContactForm, }: BundleProps): JSX.Element => {
@@ -37,6 +34,10 @@ export default function Pricing() {
          </div>
       );
 
+      const handleSelectClick = () => {
+         window.location.href = 'https://345stafpvg1.typeform.com/to/bCtmfRHV';
+      };
+
       return (
          <motion.div animate={{ scale: 1 }}
             style={{ backgroundImage: `url(${noise})`, backgroundSize: 'stretch', }}
@@ -52,7 +53,7 @@ export default function Pricing() {
                <BundlePropContainer label={"Has a Responsive Design"} isActive={isResponsive} />
                <BundlePropContainer label={"Has A Contact Form"} isActive={hasContactForm} />
             </div>
-            <motion.button whileHover={{ scale: 1.1 }} className='bg-accent px-6 py-2 text-white rounded-full'> {"Select"} </motion.button>
+            <motion.button whileHover={{ scale: 1.1 }} className='bg-accent px-6 py-2 text-white rounded-full' onClick={handleSelectClick}> {"Select"} </motion.button>
          </motion.div>
       );
    }

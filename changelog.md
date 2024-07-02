@@ -76,3 +76,7 @@
 * made several components responsive on mobile devices
 * removed some unused links for now
 * fixed minor framer issue
+
+## 02.07.2024
+* added "Select" button function
+* added Link for applying for a website
